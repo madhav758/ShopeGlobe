@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 export default function ProductItem({ productItems }) {
@@ -10,7 +11,7 @@ export default function ProductItem({ productItems }) {
 
                 <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                     {productItems.map((product) => (
-                        <a key={product.id} className="group">
+                        <Link to={`/products/${product.id}`}>
                             <img
                                 alt=''
                                 src={product.images}
@@ -33,7 +34,7 @@ export default function ProductItem({ productItems }) {
                                     </button>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>
