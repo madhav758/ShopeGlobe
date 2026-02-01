@@ -1,8 +1,19 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { add } from "./utils/cartSlice";
+
+
 
 
 export default function ProductItem({ productItems }) {
     console.log(productItems);
+    const dispatch = useDispatch()
+    function handleAdd(e, product) {
+        e.preventDefault();
+        e.stopPropagation();
+        dispatch(add(product))
+    }
+
 
     return (
         <div className="bg-white">
@@ -14,16 +25,16 @@ export default function ProductItem({ productItems }) {
                         <Link to={`/products/${product.id}`}>
                             <img
                                 alt=''
-                                src={product.images}
+                                src={product.thumbnail || product.images[0]}
                                 className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
                             />
                             <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
                             <div className="flex justify-between my-2">
                                 <div>
-                                    <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+                                    <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
                                 </div>
                                 <div>
-                                    <button
+                                    <button onClick={(e) => handleAdd(e, product)}
                                         type="button"
                                         className="inline-flex items-center text-white bg-indigo-500 hover:bg-indigo-700 transition-colors duration-200 font-medium rounded-lg text-sm px-4 py-2"
                                     >

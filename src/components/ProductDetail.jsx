@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { add } from './utils/cartSlice';
 
 function ProductDetail() {
     let { id } = useParams();
@@ -21,6 +23,13 @@ function ProductDetail() {
         }
         calling()
     }, [id])
+
+    const dispatch = useDispatch()
+    function handleAddItem(e, product) {
+        e.preventDefault();
+        dispatch(add(product))
+    }
+
     if (!proDetail) return <div className="p-20 text-center">Loading Product Details...</div>;
     return (
         <div>
@@ -84,21 +93,21 @@ function ProductDetail() {
                                             <path d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" fill-rule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p className="sr-only">
+                                    {/* <p className="sr-only">
                                         {proDetail.reviews && proDetail.reviews.length > 0
-                                            ? (proDetail.reviews.reduce((acc, curr) => acc + curr.review, 0) / proDetail.rating.length).toFixed(1)
+                                            ? (proDetail.reviews.reduce((acc, curr) => acc + curr.rating, 0) / proDetail.reviews.length).toFixed(1)
                                             : "No reviews"}
                                         out of 5 stars
-                                    </p>
+                                    </p> */}
                                     <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{proDetail.reviews && proDetail.reviews.length > 0
-                                        ? (proDetail.reviews.reduce((acc, curr) => acc + curr.rating, 0) / proDetail.reviews.length).toFixed(1)
+                                        ? proDetail.reviews.reduce((acc, curr) => acc + curr.rating, 0) / proDetail.reviews.length.toFixed(1)
                                         : "No reviews"}
                                         out of 5 stars</a>
                                 </div>
                             </div>
 
                             <form class="mt-10">
-                                <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to bag</button>
+                                <button onClick={(e) => handleAddItem(e, proDetail)} type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to bag</button>
                             </form>
                         </div>
 
