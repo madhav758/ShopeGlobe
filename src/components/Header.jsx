@@ -2,6 +2,7 @@ import React from 'react'
 'use client'
 import logo from '../assets/logo.svg';
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 import {
     Dialog,
     DialogPanel,
@@ -35,6 +36,7 @@ const callsToAction = [
     { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
     { name: 'Contact sales', href: '#', icon: PhoneIcon },
 ]
+
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -118,9 +120,12 @@ export default function Header() {
                     </a>
                 </PopoverGroup>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Your Cart <span aria-hidden="true">&rarr;</span>
-                    </a>
+                    <Link to={'/cart'}>
+                        <p className="text-sm/6 font-semibold text-white">
+                            Your Cart <span aria-hidden="true">&rarr;</span>
+                        </p>
+
+                    </Link>
                 </div>
             </nav>
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
