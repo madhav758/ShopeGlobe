@@ -6,8 +6,8 @@ import { remove } from './utils/cartSlice'
 function Cart() {
     const cartItems = useSelector((state) => state.cart.items)
     const dispatch = useDispatch()
-    function HandleRemove(product) {
-        dispatch(remove(product))
+    function HandleRemove(id) {
+        dispatch(remove(id))
     }
     return (
         <div>
@@ -57,7 +57,7 @@ function Cart() {
                                                         </select>
 
                                                         <div className="absolute top-0 right-0">
-                                                            <button onClick={() => HandleRemove(product)} type="button" className="-m-2 inline-flex p-2 text-indigo-600 hover:text-indigo-500 text-sm font-medium">
+                                                            <button onClick={() => HandleRemove(product.id)} type="button" className="-m-2 inline-flex p-2 text-indigo-600 hover:text-indigo-500 text-sm font-medium">
                                                                 Remove
                                                             </button>
                                                         </div>
