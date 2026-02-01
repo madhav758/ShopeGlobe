@@ -7,7 +7,7 @@ function ProductList() {
         async function calling() {
             const API = 'https://dummyjson.com/products';
             let resp = await axios.get(API);
-            console.log(resp.data.products);
+            // console.log(resp.data.products);
             setItems(resp.data.products);
 
         }
