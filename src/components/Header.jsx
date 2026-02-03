@@ -49,11 +49,13 @@ export default function Header() {
                 <div className="flex lg:flex-1">
                     <a href="#" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
-                        <img
+                        <Link to={'/'}><img
                             alt=""
                             src={logo}
                             className="h-8 w-auto"
                         />
+                        </Link>
+
                     </a>
                 </div>
                 <div className="flex lg:hidden">
@@ -68,10 +70,10 @@ export default function Header() {
                 </div>
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
                     <Popover className="relative">
-                        <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white">
-                            Product
-                            <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-500" />
-                        </PopoverButton>
+                        <Link to={'/'}><a href="#" className="text-sm/6 font-semibold text-white">
+                            Home
+                        </a></Link>
+
 
                         <PopoverPanel
                             transition
@@ -110,10 +112,10 @@ export default function Header() {
                             </div>
                         </PopoverPanel>
                     </Popover>
+                    <Link to={'/cart'}><a href="#" className="text-sm/6 font-semibold text-white">
+                        Checkout
+                    </a></Link>
 
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Offers
-                    </a>
                     <a href="#" className="text-sm/6 font-semibold text-white">
                         Sign in
                     </a>
