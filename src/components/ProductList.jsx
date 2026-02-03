@@ -5,10 +5,16 @@ function ProductList() {
     const [items, setItems] = useState([]);
     useEffect(() => {
         async function calling() {
-            const API = 'https://dummyjson.com/products';
-            let resp = await axios.get(API);
-            // console.log(resp.data.products);
-            setItems(resp.data.products);
+            try {
+                const API = 'https://dummyjson.com/products';
+                let resp = await axios.get(API);
+                // console.log(resp.data.products);
+                setItems(resp.data.products);
+            }
+            catch (err) {
+                console.log("api fetch error");
+
+            }
 
         }
         calling();
