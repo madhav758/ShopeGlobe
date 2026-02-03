@@ -8,6 +8,7 @@ import Cart from './components/Cart.jsx'
 import CheckoutPage from './components/CheckoutPage.jsx'
 import ProductDetail from './components/ProductDetail.jsx'
 import Error from './components/Error.jsx'
+import Search from './components/Search.jsx'
 
 const appRouter = createBrowserRouter([
   {

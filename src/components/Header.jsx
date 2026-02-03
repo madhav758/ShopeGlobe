@@ -3,6 +3,7 @@ import React from 'react'
 import logo from '../assets/logo.svg';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+
 import {
     Dialog,
     DialogPanel,
@@ -24,6 +25,7 @@ import {
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import Search from './Search';
 
 const products = [
     { name: 'Clothing', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -115,9 +117,12 @@ export default function Header() {
                     <a href="#" className="text-sm/6 font-semibold text-white">
                         Sign in
                     </a>
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Search
-                    </a>
+
+                    <div>
+                        <Search />
+
+                    </div>
+
                 </PopoverGroup>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <Link to={'/cart'}>

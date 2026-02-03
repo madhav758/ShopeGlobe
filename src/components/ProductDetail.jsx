@@ -69,7 +69,7 @@ function ProductDetail() {
                         {/* <!-- Options --> */}
                         <div class="mt-4 lg:row-span-3 lg:mt-0">
                             <h2 class="sr-only">Product information</h2>
-                            <p class="text-3xl tracking-tight text-gray-900">$192</p>
+                            <p class="text-3xl tracking-tight text-gray-900">${proDetail.price}</p>
 
                             {/* <!-- Reviews --> */}
                             <div class="mt-6">
