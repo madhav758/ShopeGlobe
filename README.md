@@ -1,16 +1,84 @@
-# React + Vite
+# 🛒 React E-Commerce Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive e-commerce web application built using **React**, **Redux Toolkit**, and **Tailwind CSS**.  
+This project demonstrates scalable state management, dynamic routing, and real-world cart and checkout logic.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- Dynamic product fetching from the **DummyJSON API**
+- Global state management using **Redux Toolkit**
+- Product detail pages with dynamic routing
+- Fully functional shopping cart
+- Real-time order calculations
+- Responsive UI for mobile and desktop devices
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React.js**
+- **Redux Toolkit**
+- **React Router DOM**
+- **Axios**
+- **Tailwind CSS**
+- **Headless UI**
+- **Heroicons**
+
+---
+
+## ✨ Core Functionality
+
+### Product Management
+- Products are fetched dynamically using Axios
+- Product data is stored globally in Redux
+- Enables reuse across search, product detail, and checkout components
+
+### Shopping Cart
+- Add items to cart
+- Remove individual items
+- Clear entire cart
+- Cart state is centralized and reactive
+
+### Checkout Logic
+- **Subtotal:** Sum of all cart items
+- **Tax:** 10% of subtotal
+- **Shipping:** Flat $5 fee (applied only when cart is not empty)
+
+---
+
+
+---
+
+## 🧠 Architecture Overview
+
+### Redux Store
+- **productSlice**  
+  Stores all fetched products for global access.
+
+- **cartSlice**  
+  Manages cart items with reducers for adding, removing, and clearing items.
+
+- **appStore**  
+  Combines product and cart reducers into a single centralized store.
+
+### Data Flow
+1. Products are fetched in `Body.jsx`
+2. Data is dispatched to Redux using `setProduct`
+3. Components consume data via selectors
+4. Cart updates trigger automatic recalculations
+
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+# Clone the repository
+git clone <your-repo-url>
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev

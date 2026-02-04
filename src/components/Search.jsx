@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 function Search() {
     const product = useSelector((state) => (state.product.allProducts))
 
+
     return (
         <div>
 
