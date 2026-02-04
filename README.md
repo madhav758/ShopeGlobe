@@ -4,9 +4,11 @@ A modern, responsive e-commerce web application built using **React**, **Redux T
 This project demonstrates scalable state management, dynamic routing, and real-world cart and checkout logic.
 
 ---
-![Home Page](assets/homepage.png)
-![Cart Page](assets/cart.png)
-![Product Page](assets/productpage.png)
+<div align="center">
+  <img src="assets/homepage.png" width="30%" />
+  <img src="assets/cart.png" width="30%" />
+  <img src="assets/productpage.png" width="30%" />
+</div>
 
 
 
