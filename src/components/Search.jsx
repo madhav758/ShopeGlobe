@@ -1,22 +1,21 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setFilteredProduct } from './utils/productSlice';
 
 function Search() {
-    // 1. Define local state for the input value
-    const [searchTerm, setSearchTerm] = useState("");
-
     // 2. Access products from your productSlice
     const allProducts = useSelector((state) => state.product.allProducts);
-
+    const filteredProducts = useSelector((state) => state.product.filteredProducts);
+    const dispatch = useDispatch();
     // 3. Define the handleSearch function
-    const handleSearch = (value) => {
-        setSearchTerm(value);
+    function handleSearch(searchedText) {
 
-        // Example filtering logic:
-        const filtered = allProducts.filter(item =>
-            item.title.toLowerCase().includes(value.toLowerCase())
-        );
-        console.log("Filtered Results:", filtered);
+        const filteredData = allProducts.filter((products) => {
+            return products.title.toLowerCase().includes(searchedText.toLowerCase())
+        })
+        dispatch(setFilteredProduct(filteredData))
+
+
     };
 
     return (
@@ -46,7 +45,6 @@ function Search() {
                         className="block w-full p-2.5 ps-10 text-sm text-gray-200 bg-gray-800 border border-gray-700 rounded-full focus:ring-purple-500 focus:border-purple-500 placeholder-gray-500 outline-none transition-all"
                         placeholder="Search"
                         // Now searchTerm is defined via useState
-                        value={searchTerm}
                         // Now handleSearch is defined as a function
                         onChange={(e) => handleSearch(e.target.value)}
                         required
