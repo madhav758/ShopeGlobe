@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react'
 import ProductItem from './ProductItem';
 import ProductList from './ProductList';
 import { useDispatch, useSelector } from 'react-redux'
-import { setProduct } from './utils/productSlice';
+import { setFilteredProduct, setProduct } from './utils/productSlice';
 
 function Body() {
-    let productItems = ProductList();
-    // console.log(productItems);
-    const dispatch = useDispatch()
+    let productItems = ProductList(); //make sure the product list API doesnt rerun and ony runs once i.e has no dependenmcy array int he useEffect in the productList.jsx or it will creatae an infinite re render of the body we can also add a setLoading (false) inside the useEffect and make it true outside if the p
+    const dispatch = useDispatch();
 
-    const [allProductItems, setAllProductItems] = useState(productItems)
+    const displayedProducts = useSelector((state) => state.product.filteredProducts);
+
     useEffect(() => {
         if (productItems && productItems.length) {
-            setAllProductItems(productItems)
             dispatch(setProduct(productItems))
+            dispatch(setFilteredProduct(productItems))
         }
     }, [productItems, dispatch])
-
 
 
 
@@ -24,7 +23,7 @@ function Body() {
         <div>
             <div>
 
-                <ProductItem productItems={allProductItems} />
+                <ProductItem productItems={displayedProducts} />
 
             </div>
         </div>
