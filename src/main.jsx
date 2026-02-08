@@ -1,14 +1,17 @@
 
+import { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Body from './components/Body.jsx'
-import Cart from './components/Cart.jsx'
-import CheckoutPage from './components/CheckoutPage.jsx'
-import ProductDetail from './components/ProductDetail.jsx'
+const Cart = lazy(() => import('./components/Cart.jsx'));
+const CheckoutPage = lazy(() => import('./components/CheckoutPage.jsx'));
+// import ProductDetail from './components/ProductDetail.jsx'
+const ProductDetail = lazy(() => import('./components/ProductDetail.jsx'));
 import Error from './components/Error.jsx'
-import Search from './components/Search.jsx'
+
+
 
 const appRouter = createBrowserRouter([
   {
@@ -22,15 +25,16 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/checkoutpage',
-        element: <CheckoutPage />
+        element: <Suspense fallback={<p>Loading checkoutpage...</p>}><CheckoutPage /></Suspense>
       },
       {
         path: '/products/:id',
-        element: <ProductDetail />
+
+        element: <Suspense fallback={<p>Loading product details...</p>}><ProductDetail /></Suspense>
       },
       {
         path: '/cart',
-        element: <Cart />
+        element: <Suspense fallback={<p>Loading Cart...</p>}><Cart /></Suspense>
       },
 
     ]
