@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { remove } from './utils/cartSlice'
-
+import { lazy } from 'react'
 function CartItems() {
     const cartItems = useSelector((state) => state.cart.items)
     const dispatch = useDispatch()
@@ -14,11 +14,11 @@ function CartItems() {
                 console.log(product, 'resp');
 
                 return (
-                    <li className="flex py-6 sm:py-10">
+                    <li key={product.id} className="flex py-6 sm:py-10">
                         <div className="shrink-0">
                             <img
                                 src={product.images?.[0]}
-                                alt={product.title}
+                                alt={product.title} loading="lazy"
                                 className="size-24 rounded-md object-cover sm:size-48"
                             />
                         </div>
