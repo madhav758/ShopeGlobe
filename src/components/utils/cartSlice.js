@@ -13,7 +13,15 @@ export const cartSlice = createSlice({
             // doesn't actually mutate the state because it uses the Immer library,
             // which detects changes to a "draft state" and produces a brand new
             // immutable state based off those changes
-            state.items.push(action.payload)
+            const existingItem = state.items.find((item => item.id === action.payload.id))
+            if (existingItem) {
+                console.log("item already in cart ");
+
+            }
+            else {
+                state.items.push(action.payload)
+
+            }
         },
         remove: (state, action) => {
             state.items = state.items.filter(item => item.id !== action.payload);
