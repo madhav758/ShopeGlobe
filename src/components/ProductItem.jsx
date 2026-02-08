@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { add } from "./utils/cartSlice";
-
+import { lazy } from "react";
 
 
 
@@ -22,9 +22,9 @@ export default function ProductItem({ productItems }) {
 
                 <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                     {productItems.map((product) => (
-                        <Link to={`/products/${product.id}`}>
+                        <Link key={productItems.id} to={`/products/${product.id}`}>
                             <img
-                                alt=''
+                                alt='' loading="lazy"
                                 src={product.thumbnail || product.images[0]}
                                 className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
                             />
