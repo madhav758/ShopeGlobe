@@ -10,6 +10,7 @@ const CheckoutPage = lazy(() => import('./components/CheckoutPage.jsx'));
 // import ProductDetail from './components/ProductDetail.jsx'
 const ProductDetail = lazy(() => import('./components/ProductDetail.jsx'));
 import Error from './components/Error.jsx'
+import Signin from './components/Signin.jsx';
 
 
 
@@ -35,6 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/cart',
         element: <Suspense fallback={<p>Loading Cart...</p>}><Cart /></Suspense>
+      },
+      {
+        path: '/signin',
+        element: <Suspense fallback={<p>Loading Sign in ...</p>}><Signin /></Suspense>
       },
 
     ]
