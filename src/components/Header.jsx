@@ -43,6 +43,7 @@ const callsToAction = [
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+
     return (
         <header className="bg-gray-900">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
@@ -116,9 +117,11 @@ export default function Header() {
                         Checkout
                     </a></Link>
 
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Sign in
-                    </a>
+                    <Link to={'/signin'}>
+                        <a href="#" className="text-sm/6 font-semibold text-white">
+                            Sign in
+                        </a>
+                    </Link>
 
                     <div>
                         <Search />
@@ -135,6 +138,7 @@ export default function Header() {
                     </Link>
                 </div>
             </nav>
+
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-50" />
                 <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
@@ -178,32 +182,45 @@ export default function Header() {
                                         ))}
                                     </DisclosurePanel>
                                 </Disclosure>
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                                >
-                                    Features
-                                </a>
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                                >
-                                    Marketplace
-                                </a>
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                                >
-                                    Company
-                                </a>
+                                <Link to={'/'}>
+                                    <a
+                                        href="#"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Home
+                                    </a>
+                                </Link>
+                                <Link to={'/cart'}>
+                                    <a
+                                        href="#"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Check out
+                                    </a>
+                                </Link>
+                                <Link to={'/cart'}>
+                                    <a
+                                        href="#"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Cart
+                                    </a>
+                                </Link>
                             </div>
                             <div className="py-6">
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
-                                >
-                                    Log in
-                                </a>
+                                <Link to={'/signin'}>
+                                    <a
+                                        href="#"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Log in
+                                    </a>
+                                </Link>
+
                             </div>
                         </div>
                     </div>
