@@ -3,6 +3,16 @@
 ### Link
 https://github.com/madhav758/ShopeGlobe 
 
+
+---
+<div align="center">
+  <img src="assets/homepage.png" width="30%" />
+  <img src="assets/cart.png" width="30%" />
+  <img src="assets/productpage.png" width="30%" />
+</div>
+
+
+
 # ShopeGlobe 🌍🛒
 
 ShopeGlobe is a modern, full-stack E-commerce application designed to provide a seamless shopping experience. It features a responsive user interface, product management, cart functionality, and secure user authentication.

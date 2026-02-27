@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import axios from 'axios'
 function Signin() {
 
     const [isSignUp, setIsSignUp] = useState(true);
@@ -13,6 +13,51 @@ function Signin() {
         remember: false
     });
 
+    // hadmel Register
+    async function handleRegister(e) {
+        e.preventDefault();
+        try {
+            const response = await axios.post("https://shopeglobe-backend-1.onrender.com/api/register", formData)
+            console.log(response.data);
+            alert("User Registered")
+            setFormData({
+                fullName: '',
+                email: '',
+                password: '',
+                remember: false
+            })
+            setIsSignUp(true);
+        } catch (error) {
+            console.log(error.message);
+            alert("Registration Failed")
+
+        }
+
+    }
+
+    //handleLogin
+    async function handleLogin(e) {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:5050/api/login", formData)
+            console.log(response.data);
+            alert(`Welcome ${response.data.user.fullName}`)
+            localStorage.setItem("token", response.data.accessToken);
+            localStorage.setItem("user", JSON.stringify(response.data.user));
+            setFormData({
+                fullName: '',
+                email: '',
+                password: '',
+                remember: false
+            })
+
+        } catch (error) {
+            console.log(error.message);
+            alert("Login Failed")
+
+        }
+
+    }
 
     // 2. Handle input changes dynamically
     const handleChange = (e) => {
@@ -23,6 +68,15 @@ function Signin() {
         }));
     };
 
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!isSignUp) {
+            handleRegister(e);
+        } else {
+            handleLogin(e);
+        }
+    };
     // // 3. Handle form submission (The "Backend Connection")
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -56,7 +110,7 @@ function Signin() {
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                 Sign in to your account
                             </h1>
-                            <form className="space-y-4 md:space-y-6" >
+                            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                                 {!isSignUp && (
                                     <div>
                                         <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Full Name</label>
@@ -119,9 +173,6 @@ function Signin() {
                                 <button
                                     type="submit"
                                     className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                                    onClick={
-                                        !isSignUp ? (e) => handleRegister(e) : (e) => handleLogin(e)
-                                    }
                                 >
                                     {!isSignUp ? "Register" : "Login to your account"}
                                 </button>

@@ -53,7 +53,7 @@ function Search() {
 
                 <button
                     type="button"
-                    className="px-6 py-2.5 text-sm font-semibold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-colors shadow-lg active:scale-95"
+                    className="px-6 py-2.5 text-sm font-semibold text-white bg-[#c10000] hover:bg-[#c10000] rounded-full transition-colors shadow-lg active:scale-95"
                 >
                     Search
                 </button>

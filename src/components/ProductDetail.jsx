@@ -25,10 +25,35 @@ function ProductDetail() {
     }, [id])
 
     const dispatch = useDispatch()
-    function handleAddItem(e, product) {
+    async function handleAddItem(e, product) {
         e.preventDefault();
-        dispatch(add(product))
-    }
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("Please login First")
+            return;
+        }
+        try {
+            const response = await axios.post('https://shopeglobe-backend-1.onrender.com/api/cart',
+                {
+                    id: product.id,
+                    quantity: 1,
+                    title: product.title,
+                    price: product.price,
+                    thumbnail: product.thumbnail,
+                    description: product.description, // Added
+                    category: product.category        // Added
+                },
+                { headers: { Authorization: `JWT ${token}` } }
+            )
+            if (response.status === 200 || response.status === 201) {
+                dispatch(add(product))
+                alert("Added to atlas and redux")
+            }
+        } catch (error) {
+            console.error("Atlas Sync Error:", error.response?.data || error.message);
+            alert("login First");
+        }
+    };
 
     if (!proDetail) return <div className="p-20 text-center">Loading Product Details...</div>;
     return (
@@ -107,7 +132,7 @@ function ProductDetail() {
                             </div>
 
                             <form class="mt-10">
-                                <button onClick={(e) => handleAddItem(e, proDetail)} type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to bag</button>
+                                <button onClick={(e) => handleAddItem(e, proDetail)} type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-[#c10000] hover:bg-[#c10000] px-8 py-3 text-base font-medium text-white focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to bag</button>
                             </form>
                         </div>
 
