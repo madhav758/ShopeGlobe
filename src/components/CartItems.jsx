@@ -80,25 +80,25 @@ function CartItems() {
                                 <div>
                                     <div className="flex justify-between">
                                         <h3 className="text-sm">
-                                            <a href="#" className="font-medium text-gray-700 hover:text-gray-800">
+                                            <a href="#" className="font-medium text-white hover:text-gray-300">
                                                 {product.title}
                                             </a>
                                         </h3>
                                     </div>
-                                    <p className="mt-1 text-sm text-gray-500">{product.category}</p>
-                                    <p className="mt-1 text-sm font-medium text-gray-900">{product.price}</p>
+                                    <p className="mt-1 text-sm text-gray-400">{product.category}</p>
+                                    <p className="mt-1 text-sm font-medium text-white">{product.price}</p>
                                 </div>
 
                                 <div className="mt-4 sm:mt-0 sm:pr-9">
                                     <select value={product.quantity}
-                                        onChange={(e) => HandleQuantityChange(product.id, e.target.value)} className="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+                                        onChange={(e) => HandleQuantityChange(product.id, e.target.value)} className="max-w-full rounded-md border border-white/10 bg-neutral-800 py-1.5 text-left text-base font-medium leading-5 text-white shadow-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500 sm:text-sm">
                                         {[1, 2, 3, 4, 5].map(num => (
                                             <option key={num} value={num}>{num}</option>
                                         ))}
                                     </select>
 
                                     <div className='absolute top-0 right-0'>
-                                        <button onClick={() => HandleRemove(product.id)} type="button" className="-m-2 inline-flex p-2 text-indigo-600 hover:text-indigo-500 text-sm font-medium">
+                                        <button onClick={() => HandleRemove(product.id)} type="button" className="-m-2 inline-flex p-2 text-gray-400 hover:text-[#c10000] text-sm font-medium transition-colors">
                                             Remove
                                         </button>
                                     </div>
@@ -107,8 +107,8 @@ function CartItems() {
                                 </div>
                             </div>
 
-                            <p className="mt-4 flex space-x-2 text-sm text-gray-700">
-                                <span className="text-green-500">✓</span>
+                            <p className="mt-4 flex space-x-2 text-sm text-gray-300">
+                                <span className="text-green-400">✓</span>
                                 <span>In stock</span>
                             </p>
                         </div>

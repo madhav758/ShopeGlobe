@@ -10,31 +10,31 @@ function CheckoutPage() {
     return (
         <div>
 
-            <div><h2 id="summary-heading" className="text-lg font-medium text-gray-900">Order summary</h2>
+            <div><h2 id="summary-heading" className="text-lg font-medium text-white">Order summary</h2>
 
                 <dl className="mt-6 space-y-4">
                     <div className="flex items-center justify-between">
-                        <dt className="text-sm text-gray-600">Subtotal</dt>
-                        <dd className="text-sm font-medium text-gray-900">${subtotal.toFixed(2)}</dd>
+                        <dt className="text-sm text-gray-400">Subtotal</dt>
+                        <dd className="text-sm font-medium text-white">${subtotal.toFixed(2)}</dd>
                     </div>
-                    <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-                        <dt className="text-sm text-gray-600">Shipping</dt>
-                        <dd className="text-sm font-medium text-gray-900">${shipping.toFixed(2)}</dd>
+                    <div className="flex items-center justify-between border-t border-white/10 pt-4">
+                        <dt className="text-sm text-gray-400">Shipping</dt>
+                        <dd className="text-sm font-medium text-white">${shipping.toFixed(2)}</dd>
                     </div>
-                    <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-                        <dt className="text-sm text-gray-600">Tax estimate</dt>
-                        <dd className="text-sm font-medium text-gray-900">${estTax.toFixed(2)}</dd>
+                    <div className="flex items-center justify-between border-t border-white/10 pt-4">
+                        <dt className="text-sm text-gray-400">Tax estimate</dt>
+                        <dd className="text-sm font-medium text-white">${estTax.toFixed(2)}</dd>
                     </div>
-                    <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-                        <dt className="text-base font-medium text-gray-900">Order total</dt>
-                        <dd className="text-base font-medium text-gray-900">${orderTotal.toFixed(2)}</dd>
+                    <div className="flex items-center justify-between border-t border-white/10 pt-4">
+                        <dt className="text-base font-medium text-white">Order total</dt>
+                        <dd className="text-base font-medium text-white">${orderTotal.toFixed(2)}</dd>
                     </div>
                 </dl>
 
                 <div className="mt-6">
                     <button
                         type="submit"
-                        className="w-full rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="w-full rounded-md border border-transparent bg-[#c10000] py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-red-800 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                     >
                         Checkout
                     </button>

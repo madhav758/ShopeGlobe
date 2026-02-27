@@ -42,7 +42,7 @@ function Search() {
 
                     <input
                         type="search"
-                        className="block w-full p-2.5 ps-10 text-sm text-gray-200 bg-gray-800 border border-gray-700 rounded-full focus:ring-purple-500 focus:border-purple-500 placeholder-gray-500 outline-none transition-all"
+                        className="block w-full p-2.5 ps-10 text-sm text-gray-200 bg-neutral-900 border border-white/10 rounded-full focus:ring-red-500 focus:border-red-500 placeholder-gray-500 outline-none transition-all"
                         placeholder="Search"
                         // Now searchTerm is defined via useState
                         // Now handleSearch is defined as a function
@@ -53,7 +53,7 @@ function Search() {
 
                 <button
                     type="button"
-                    className="px-6 py-2.5 text-sm font-semibold text-white bg-[#c10000] hover:bg-[#c10000] rounded-full transition-colors shadow-lg active:scale-95"
+                    className="px-6 py-2.5 text-sm font-semibold text-white bg-[#c10000] hover:bg-red-800 rounded-full transition-colors shadow-lg active:scale-95"
                 >
                     Search
                 </button>

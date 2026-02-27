@@ -45,7 +45,7 @@ export default function Header() {
 
 
     return (
-        <header className="bg-[#18330c]">
+        <header className="bg-black border-b border-white/10 sticky top-0 z-50">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
                     <a href="#" className="-m-1.5 p-1.5">
@@ -79,7 +79,7 @@ export default function Header() {
 
                         <PopoverPanel
                             transition
-                            className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-gray-800 outline-1 -outline-offset-1 outline-white/10 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+                            className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-neutral-900 outline-1 -outline-offset-1 outline-white/10 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                         >
                             <div className="p-4">
                                 {products.map((item) => (
@@ -87,7 +87,7 @@ export default function Header() {
                                         key={item.name}
                                         className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5"
                                     >
-                                        <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
+                                        <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-white/5 group-hover:bg-white/10">
                                             <item.icon aria-hidden="true" className="size-6 text-gray-400 group-hover:text-white" />
                                         </div>
                                         <div className="flex-auto">
@@ -100,12 +100,12 @@ export default function Header() {
                                     </div>
                                 ))}
                             </div>
-                            <div className="grid grid-cols-2 divide-x divide-white/10 bg-gray-700/50">
+                            <div className="grid grid-cols-2 divide-x divide-white/10 bg-white/5">
                                 {callsToAction.map((item) => (
                                     <a
                                         key={item.name}
                                         href={item.href}
-                                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-700/50"
+                                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-white/10"
                                     >
                                         <item.icon aria-hidden="true" className="size-5 flex-none text-gray-500" />
                                         {item.name}
@@ -142,7 +142,7 @@ export default function Header() {
 
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-50" />
-                <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
+                <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
                     <div className="flex items-center justify-between">
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>

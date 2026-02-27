@@ -25,16 +25,16 @@ function Body() {
 
     return (
         <div>
-            <div className='bg-[#fef8ef] '>
+            <div className='bg-transparent'>
                 {/* <h1 className='text-xl'>{user ? `Welcome to ShopeGlobe, ${user.fullName}!` : "Welcome to ShopGlobe, please login to access cart!"}</h1> */}
                 <div className=" max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 ">
-                    <h1 className="mb-1 ml-1.5 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-5xl mt-6">
+                    <h1 className="mb-1 ml-1.5 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-5xl mt-6">
 
                         Welcome to <mark className="px-2 pb-0.5 text-white bg-[#c10000] rounded-md">ShopeGlobe</mark>
 
                     </h1>
 
-                    <p className="ml-2 mt-2 text-gray-500 text-lg">
+                    <p className="ml-2 mt-2 text-gray-300 text-lg">
                         Explore our latest collection of premium products.
                     </p>
                 </div>
