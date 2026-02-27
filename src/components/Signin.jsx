@@ -39,7 +39,7 @@ function Signin() {
     async function handleLogin(e) {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5050/api/login", formData)
+            const response = await axios.post("https://shopeglobe-backend-1.onrender.com/api/login", formData)
             console.log(response.data);
             alert(`Welcome ${response.data.user.fullName}`)
             localStorage.setItem("token", response.data.accessToken);
